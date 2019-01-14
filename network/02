@@ -1,0 +1,1 @@
+ipconfig getifaddr en0 && arp -a | grep "?" -v | cut -d " " -f2 | sed 's/[\(\)]//g' 

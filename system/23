@@ -1,0 +1,10 @@
+/*****/
+
+Show VM in VirtualBox, when asked type login then password
+
+/*****/
+
+ssh login@hostname
+enter password when asked
+
+/*****/

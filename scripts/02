@@ -1,0 +1,2 @@
+sudo pkill -KILL -u <login>
+sudo deluser <login>

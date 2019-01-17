@@ -1,0 +1,59 @@
+#!/bin/bash
+
+allowed_extension()
+{
+	local EXTENSION=$(echo $1 | awk -F . '{print $NF}')
+	local IGNORE=(~/.catignore)
+	if [ -f $IGNORE ]; then
+		local FORBIDDEN=$(cat $IGNORE)
+	else
+		local FORBIDDEN=(pdf o a)
+	fi
+	for FORB in ${FORBIDDEN[@]}
+	do
+		if [ $EXTENSION = $FORB ]; then
+			echo "$IGNORE : *.$EXTENSION"
+			false
+			return
+		fi
+	done
+	true
+}
+
+show_file()
+{
+	local FILE=$(basename -- $1)
+	local SIZE=$(ls -sh $FILE | cut -d " " -f1)
+	local PERM=$(ls -l $FILE | cut -d " " -f1)
+	local AUTH=$(ls -l $FILE | cut -d " " -f3)
+	printf "$FILE \t $SIZE \t $PERM \t $AUTH\n"
+	if allowed_extension $FILE; then
+		cat "$FILE"
+	fi
+}
+
+if [ $# -eq 0 ]; then
+	DIR=`pwd`
+elif [ $# -eq 1 ]; then
+	DIR=$(realpath $1)
+	if [ ! -d $DIR ]; then
+		if [ ! -f $DIR ]; then
+			echo "$DIR does not exist."
+			exit 1
+		else
+			show_file "$DIR"
+			exit 1
+		fi
+	fi
+	cd $DIR
+else
+	echo "Too many arguments."
+	exit 1
+fi
+echo "Directory : $DIR"
+FILES="$(find . -maxdepth 1 -type f -not -name ".*" | sort)"
+for FILE in $FILES
+do
+	echo
+	show_file "$FILE"
+done

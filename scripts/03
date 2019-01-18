@@ -35,7 +35,7 @@ show_file()
 if [ $# -eq 0 ]; then
 	DIR=`pwd`
 elif [ $# -eq 1 ]; then
-	DIR=$(realpath $1)
+	DIR=$1
 	if [ ! -d $DIR ]; then
 		if [ ! -f $DIR ]; then
 			echo "$DIR does not exist."
@@ -46,6 +46,7 @@ elif [ $# -eq 1 ]; then
 		fi
 	fi
 	cd $DIR
+	DIR=`pwd`
 else
 	echo "Too many arguments."
 	exit 1

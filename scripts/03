@@ -22,12 +22,11 @@ allowed_extension()
 
 show_file()
 {
-	local FILE=$(basename -- $1)
-	local RES=$(ls -lh $FILE)
-	local SIZE=$(echo $RES | cut -d " " -f4)
-	local PERM=$(echo $RES | cut -d " " -f1)
-	local AUTH=$(echo $RES | cut -d " " -f3)
-	printf "$FILE \t $SIZE \t $PERM \t $AUTH\n"
+	local FILE=$(echo $1 | cut -d " " -f9)
+	local SIZE=$(echo $1 | cut -d " " -f5)
+	local PERM=$(echo $1 | cut -d " " -f1)
+	local AUTH=$(echo $1 | cut -d " " -f3)
+	printf "\x1b[36m$FILE \t $SIZE \t $PERM \t $AUTH\\x1b[0m\n"
 	if allowed_extension $FILE; then
 		cat "$FILE"
 	fi
@@ -42,7 +41,7 @@ elif [ $# -eq 1 ]; then
 			echo "$DIR does not exist."
 			exit 1
 		else
-			show_file "$DIR"
+			show_file "$(ls -lh $1)"
 			exit 1
 		fi
 	fi
@@ -52,9 +51,8 @@ else
 	exit 1
 fi
 echo "Directory : $DIR"
-FILES="$(find . -maxdepth 1 -type f -not -name ".*" | sort)"
-for FILE in $FILES
+ls -lh | sed 1d | while read LINE;
 do
 	echo
-	show_file "$FILE"
+	show_file "$LINE"
 done

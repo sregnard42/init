@@ -23,9 +23,10 @@ allowed_extension()
 show_file()
 {
 	local FILE=$(basename -- $1)
-	local SIZE=$(ls -sh $FILE | cut -d " " -f1)
-	local PERM=$(ls -l $FILE | cut -d " " -f1)
-	local AUTH=$(ls -l $FILE | cut -d " " -f3)
+	local RES=$(ls -lh $FILE)
+	local SIZE=$(echo $RES | cut -d " " -f4)
+	local PERM=$(echo $RES | cut -d " " -f1)
+	local AUTH=$(echo $RES | cut -d " " -f3)
 	printf "$FILE \t $SIZE \t $PERM \t $AUTH\n"
 	if allowed_extension $FILE; then
 		cat "$FILE"

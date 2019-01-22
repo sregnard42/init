@@ -1,1 +1,7 @@
-ipconfig getifaddr en0 && arp -a | grep "?" -v | cut -d " " -f2 | sed 's/[\(\)]//g' 
+ifconfig en0
+
+# Broadcast address can be found just after 'broadcast'
+# By pinging the broadcast address and running arp
+# we can find all devices (and their IP) connected 
+# to the subnet
+# ping 192.168.1.255 -c1 -s0 && arp -a | grep "?" -v

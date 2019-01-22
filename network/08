@@ -1,1 +1,4 @@
-Amazon
+# Amazon
+
+dig +short slash16.org | head -n1 | xargs whois | grep OrgName
+# We need to use whois on the IP address of the DNS server to find the host

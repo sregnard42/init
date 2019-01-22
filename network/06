@@ -1,1 +1,3 @@
 /etc/resolv.conf
+
+# DNS IP address is found to the right of "nameserver"

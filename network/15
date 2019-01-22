@@ -1,1 +1,3 @@
 46.19.122.85	intra.42.fr
+
+# echo "49.19.122.85\tintra.42.fr" >> /etc/hosts

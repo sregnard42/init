@@ -1,1 +1,13 @@
-ldap-proxy.42.fr
+ipconfig getifaddr en0 | xargs dig +short -x
+
+# from `man dig`
+#-x addr
+#           Simplified reverse lookups, for mapping addresses to names. The addr is an IPv4
+#           address in dotted-decimal notation, or a colon-delimited IPv6 address. When the
+#           -x is used, there is no need to provide the name, class and type arguments.
+#           dig automatically performs a lookup for a name like 94.2.0.192.in-addr.arpa and
+#           sets the query type and class to PTR and IN respectively. IPv6 addresses are
+#           looked up using nibble format under the IP6.ARPA domain (but see also the -i
+#           option).
+#
+# Basically we use dig -x when we want to Reverse DNS, +short output only the name 

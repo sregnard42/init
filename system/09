@@ -1,1 +1,4 @@
 who
+
+# `who` shows who's logged in
+# `w` shows who's logged in AND what they're doing

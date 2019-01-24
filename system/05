@@ -1,1 +1,5 @@
-/usr/sbin/service ssh status
+sudo service ssh status
+
+# /usr/sbin/service ssh status 
+# displays the same informations minus the logs, 
+# but doesn't need sudo

@@ -1,1 +1,7 @@
 ~/.ssh/authorized_keys
+
+# `man ssh`
+#  The file ~/.ssh/authorized_keys lists the public keys that are permitted for logging in.
+#  When the user logs in, the ssh program tells the server which key pair it would like to use
+#  for authentication.  The client proves that it has access to the private key and the server
+#  checks that the corresponding public key is authorized to accept the account.

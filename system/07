@@ -1,1 +1,4 @@
-/usr/sbin/service ssh status | grep PID | grep sshd | awk '{print $3}'
+pgrep -u root -f /usr/sbin/sshd
+
+# Alternative way :
+# sudo service sshd status | grep 'Main PID' | awk '{print $3}'

@@ -1,1 +1,5 @@
 df -h
+
+# `man df`
+# -h, --human-readable
+#             print sizes in powers of 1024 (e.g., 1023M)

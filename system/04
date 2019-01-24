@@ -1,1 +1,5 @@
-uptime
+uptime -p
+
+# from `man uptime`
+#  -p, --pretty
+#              show uptime in pretty format

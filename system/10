@@ -1,1 +1,6 @@
 sudo fdisk -l
+
+# `man fdisk`
+#  -l, --list
+#  	List the partition tables for the specified devices and then exit.   If  no  devices
+#  	are given, those mentioned in /proc/partitions (if that file exists) are used.

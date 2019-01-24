@@ -1,1 +1,5 @@
 getent passwd | cut -d : -f1
+
+# `man getent`
+# `getent passwd` is preferred to `cat /etc/passwd`
+# because it includes additional potential entries if configured so

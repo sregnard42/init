@@ -1,4 +1,4 @@
 Show VM in VirtualBox, when asked type login then password
 **********************************************************
-ssh login@hostname(or IP addr) [-p PORT]
+ssh login@hostname/host_ip [-p PORT]
 enter password when asked

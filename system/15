@@ -1,1 +1,5 @@
-sudo kill $(jobs -p)
+jobs -p | xargs sudo kill
+
+# we can use `jobs` to see processes that are running in background
+# `jobs -p` returns the PIDs of those processes
+# then we use `sudo kill` to terminate them 

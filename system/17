@@ -1,1 +1,1 @@
-ssh <host_ip>
+ssh <login>@<host_ip / hostname> [-p PORT] 

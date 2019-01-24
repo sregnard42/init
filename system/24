@@ -1,1 +1,7 @@
 dpkg --get-selections | awk '{print $1}'
+
+# `man dpkg`
+# --get-selections [package-name-pattern...]
+# 	Get  list  of  package  selections,  and write it to stdout. Without a pattern,
+#       non-installed packages (i.e. those which have been previously purged)
+#       will not be shown.

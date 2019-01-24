@@ -1,1 +1,8 @@
-top
+top -d 1
+
+# `man top`
+# top - display Linux processes
+#  -d  :Delay-time interval as:  -d ss.t (secs.tenths)
+#       Specifies  the  delay between screen updates, and overrides the corresponding value in
+#       one's personal configuration file or the startup default.  Later this can
+#       be  changed with the `d' or `s' interactive commands.
